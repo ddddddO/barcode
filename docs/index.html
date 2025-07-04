@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODECODECODECODECODECODE</title>
+
+    <link href="main.css" rel="stylesheet">
+    <script src="wasm_exec.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>CODE generator</h1>
+
+        <div class="form-section" id="inputContainer">
+            <div class="input-group">
+                <div class="input-field-wrapper flex-1">
+                    <label for="staticInput_1_1">User:</label>
+                    <input type="text" id="staticInput_1_1" name="staticInput_1_1">
+                </div>
+                <div class="input-field-wrapper flex-1">
+                    <label for="staticInput_1_2">Password:</label>
+                    <input type="password" id="staticInput_1_2" name="staticInput_1_2">
+                </div>
+                <div class="input-field-wrapper flex-3">
+                    <label for="staticInput_1_3">URL:</label>
+                    <input type="url" id="staticInput_1_3" name="staticInput_1_3">
+                </div>
+                <button type="button" class="delete-button">認証情報が画像にあるかも！ここ押して隠して</button>
+                <img id="Img-URL" />
+            </div>
+        </div>
+
+        <button id="addInputButton">バーコード追加</button>
+    </div>
+
+    <script>
+        let inputCounter = 0;
+        const addButton = document.getElementById('addInputButton');
+        const inputContainer = document.getElementById('inputContainer');
+        const handleInputEvent = (e) => {
+            const input = e.target.value;
+            const imgId = e.target.id;
+            callGenBarcode(input, imgId);
+        }
+
+        addButton.addEventListener('click', function() {
+            inputCounter++;
+
+            const inputGroup = document.createElement('div');
+            inputGroup.className = 'input-group';
+
+            const label = document.createElement('label');
+            label.textContent = `項目 ${inputCounter}:`;
+            label.htmlFor = `${inputCounter}`;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = `${inputCounter}`;
+            input.name = `${inputCounter}`;
+            input.placeholder = `コード生成元文字列をどうぞ！`;
+            input.addEventListener('input', handleInputEvent);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = '削除';
+            deleteButton.className = 'delete-button';
+
+            deleteButton.addEventListener('click', function() {
+                inputContainer.removeChild(inputGroup);
+            });
+
+            const img = document.createElement('img');
+            img.id = `Img-${inputCounter}`
+
+            inputGroup.appendChild(label);
+            inputGroup.appendChild(input);
+            inputGroup.appendChild(deleteButton);
+            inputGroup.appendChild(img);
+
+            inputContainer.appendChild(inputGroup);
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

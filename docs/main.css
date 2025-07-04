@@ -1,0 +1,108 @@
+/* 基本的なスタイル */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 上部に寄せる */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin-top: 50px; /* 上部に少し余白 */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.form-section {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fdfdfd;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center; /* ラベルと入力フィールドを垂直方向に中央揃え */
+    gap: 10px; /* ラベルと入力フィールドの間のスペース */
+}
+
+.input-group label {
+    font-size: 16px;
+    color: #555;
+    min-width: 80px; /* ラベルの最小幅を確保 */
+}
+
+.input-group input[type="text"], .input-group input[type="password"], .input-group input[type="url"] {
+    flex-grow: 1; /* 入力フィールドが利用可能なスペースを埋める */
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input[type="text"], .input-group input[type="password"], .input-group input[type="url"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* 新しいフォーム追加ボタンのスタイル */
+#addInputButton {
+    display: block; /* ボタンをブロック要素にする */
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#addInputButton:hover {
+    background-color: #0056b3;
+}
+
+#addInputButton:active {
+    transform: translateY(1px);
+}
+
+/* 削除ボタンのスタイル */
+.delete-button {
+    padding: 8px 12px;
+    background-color: #dc3545; /* 赤色 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    flex-shrink: 0; /* 縮まないようにする */
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.delete-button:active {
+    transform: translateY(1px);
+}
