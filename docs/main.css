@@ -36,7 +36,7 @@ h1 {
 }
 
 .input-group {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     display: flex;
     align-items: center; /* ラベルと入力フィールドを垂直方向に中央揃え */
     gap: 10px; /* ラベルと入力フィールドの間のスペース */
@@ -113,4 +113,8 @@ h1 {
 
 .toggle-button {
     margin-top: 12px;
+}
+
+#gitlink {
+    margin-left: 20px;
 }
