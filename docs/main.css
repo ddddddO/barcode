@@ -36,7 +36,7 @@ h1 {
 }
 
 .input-group {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center; /* ラベルと入力フィールドを垂直方向に中央揃え */
     gap: 10px; /* ラベルと入力フィールドの間のスペース */
