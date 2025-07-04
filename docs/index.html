@@ -10,28 +10,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>CODE generator</h1>
-
         <div class="form-section" id="inputContainer">
-            <div class="input-group">
-                <div class="input-field-wrapper flex-1">
-                    <label for="staticInput_1_1">User:</label>
-                    <input type="text" id="staticInput_1_1" name="staticInput_1_1">
-                </div>
-                <div class="input-field-wrapper flex-1">
-                    <label for="staticInput_1_2">Password:</label>
-                    <input type="password" id="staticInput_1_2" name="staticInput_1_2">
+            <div class="input-group" id="environment">
+                <div>
+                    <div class="input-field-wrapper flex-1">
+                        <label for="staticInput_1_1">User:</label>
+                        <input type="text" id="staticInput_1_1" name="staticInput_1_1">
+                    </div>
+                    <div class="input-field-wrapper flex-1">
+                        <label for="staticInput_1_2">Password:</label>
+                        <input type="password" id="staticInput_1_2" name="staticInput_1_2">
+                    </div>
                 </div>
                 <div class="input-field-wrapper flex-3">
                     <label for="staticInput_1_3">URL:</label>
                     <input type="url" id="staticInput_1_3" name="staticInput_1_3">
+                    <button type="button" id="toggle-button" class="toggle-button">認証情報が画像にあるかも！ここ押して隠して</button>
                 </div>
-                <button type="button" class="delete-button">認証情報が画像にあるかも！ここ押して隠して</button>
                 <img id="Img-URL" />
             </div>
+            <button id="addInputButton">バーコード追加</button>
         </div>
-
-        <button id="addInputButton">バーコード追加</button>
     </div>
 
     <script>
@@ -49,10 +48,6 @@
 
             const inputGroup = document.createElement('div');
             inputGroup.className = 'input-group';
-
-            const label = document.createElement('label');
-            label.textContent = `項目 ${inputCounter}:`;
-            label.htmlFor = `${inputCounter}`;
 
             const input = document.createElement('input');
             input.type = 'text';
@@ -72,7 +67,6 @@
             const img = document.createElement('img');
             img.id = `Img-${inputCounter}`
 
-            inputGroup.appendChild(label);
             inputGroup.appendChild(input);
             inputGroup.appendChild(deleteButton);
             inputGroup.appendChild(img);

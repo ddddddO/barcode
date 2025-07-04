@@ -22,12 +22,16 @@ const handleGenQRForURL = () => {
         return;
     }
 
-    // TODO: ここで失敗したらアラートだす
-    const u = new URL(url.value);
-    u.username = user.value;
-    u.password = password.value;
-
-    genBarcode(`${u.toString()}`, "qr", "URL");
+    try {
+        const u = new URL(url.value);
+        u.username = user.value;
+        u.password = password.value;
+        genBarcode(`${u.toString()}`, "qr", "URL");
+    } catch (err) {
+        document.getElementById("")
+        alert(err);
+        return;
+    }
 }
 
 [user, password, url].forEach((elm) => {
@@ -36,6 +40,19 @@ const handleGenQRForURL = () => {
     })
 });
 
-const switchHidden = () => {
+const toggleImageButton = document.getElementById('toggle-button');
+const urlImage = document.getElementById('Img-URL');
 
-}
+toggleImageButton.addEventListener('click', function() {
+    if (urlImage.src === "") {
+        return;
+    }
+
+    if (urlImage.style.display === 'none') {
+        urlImage.style.display = 'block';
+        toggleImageButton.textContent = '認証情報が画像にあるかも！ここ押して隠して';
+    } else {
+        urlImage.style.display = 'none';
+        toggleImageButton.textContent = '画像を表示する';
+    }
+});

@@ -25,7 +25,7 @@ func QRCode(input string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	qrCode, err = barcode.Scale(qrCode, 100, 100)
+	qrCode, err = barcode.Scale(qrCode, 130, 130)
 	if err != nil {
 		return nil, err
 	}
@@ -39,7 +39,7 @@ func Barcode128(input string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	scaled, err := barcode.Scale(barcode128, 300, 80)
+	scaled, err := barcode.Scale(barcode128, 300, 60)
 	if err != nil {
 		return nil, err
 	}

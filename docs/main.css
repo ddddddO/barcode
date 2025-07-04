@@ -12,12 +12,11 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 30px;
+    /* padding: 30px; */
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px;
-    margin-top: 50px; /* 上部に少し余白 */
+    max-width: 800px;
 }
 
 h1 {
@@ -29,7 +28,7 @@ h1 {
 }
 
 .form-section {
-    border: 1px solid #e0e0e0;
+    /* border: 1px solid #e0e0e0; */
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
@@ -37,7 +36,7 @@ h1 {
 }
 
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     display: flex;
     align-items: center; /* ラベルと入力フィールドを垂直方向に中央揃え */
     gap: 10px; /* ラベルと入力フィールドの間のスペース */
@@ -69,6 +68,7 @@ h1 {
     display: block; /* ボタンをブロック要素にする */
     width: 100%;
     padding: 12px 20px;
+    margin-bottom: 20px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -87,7 +87,7 @@ h1 {
 }
 
 /* 削除ボタンのスタイル */
-.delete-button {
+.delete-button, .toggle-button {
     padding: 8px 12px;
     background-color: #dc3545; /* 赤色 */
     color: white;
@@ -99,10 +99,18 @@ h1 {
     flex-shrink: 0; /* 縮まないようにする */
 }
 
-.delete-button:hover {
+.toggle-button {
+    width: 320px;
+}
+
+.delete-button:hover, .toggle-button:hover {
     background-color: #c82333;
 }
 
-.delete-button:active {
+.delete-button:active, .toggle-button:active {
     transform: translateY(1px);
+}
+
+.toggle-button {
+    margin-top: 12px;
 }
