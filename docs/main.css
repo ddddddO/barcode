@@ -16,7 +16,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 h1 {
@@ -37,7 +37,7 @@ h1 {
 /* マウスオーバー時、親要素にクラスが付与されている場合 */
 .form-section.dim-others img:not(:hover) {
   opacity: 0.3; /* 他の画像を薄くする */
-  filter: blur(2px); /* 他の画像をぼかす */
+  filter: blur(4px); /* 他の画像をぼかす */
 }
 
 /* もしマウスオーバーした画像を少し拡大したい場合 */
@@ -56,8 +56,12 @@ h1 {
     background-color: #fdfdfd;
 }
 
+#user-form {
+    margin-bottom: 15px;
+}
+
 .input-group {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center; /* ラベルと入力フィールドを垂直方向に中央揃え */
     gap: 10px; /* ラベルと入力フィールドの間のスペース */
@@ -77,6 +81,10 @@ h1 {
     font-size: 16px;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group img {
+    flex-grow: 1;
 }
 
 .input-group input[type="text"], .input-group input[type="password"], .input-group input[type="url"]:focus {
