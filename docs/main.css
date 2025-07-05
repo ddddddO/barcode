@@ -87,7 +87,7 @@ h1 {
     flex-grow: 1;
 }
 
-.input-group input[type="text"], .input-group input[type="password"], .input-group input[type="url"]:focus {
+.input-group input[type="text"]:focus, .input-group input[type="password"]:focus, .input-group input[type="url"]:focus {
     border-color: #007bff;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
