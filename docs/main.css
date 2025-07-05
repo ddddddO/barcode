@@ -27,6 +27,27 @@ h1 {
     font-weight: bold;
 }
 
+.form-section img {
+  width: 150px; /* 画像の初期サイズ */
+  height: auto;
+  margin: 5px;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out; /* アニメーション */
+}
+
+/* マウスオーバー時、親要素にクラスが付与されている場合 */
+.form-section.dim-others img:not(:hover) {
+  opacity: 0.3; /* 他の画像を薄くする */
+  filter: blur(2px); /* 他の画像をぼかす */
+}
+
+/* もしマウスオーバーした画像を少し拡大したい場合 */
+.form-section.dim-others img:hover {
+  transform: scale(1.5); /* 少し拡大 */
+  z-index: 10; /* 手前に表示 */
+  opacity: 1; /* 不透明にする */
+  filter: none; /* ぼかしを解除 */
+}
+
 .form-section {
     /* border: 1px solid #e0e0e0; */
     border-radius: 8px;

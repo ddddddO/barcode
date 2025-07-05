@@ -56,3 +56,21 @@ toggleImageButton.addEventListener('click', function() {
         toggleImageButton.textContent = '画像を表示する';
     }
 });
+
+// バーコードを目立たせるところ
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.form-section');
+  const images = gallery.querySelectorAll('img');
+
+  images.forEach(img => {
+    img.addEventListener('mouseenter', () => {
+      // マウスオーバー時に親要素にクラスを追加
+      gallery.classList.add('dim-others');
+    });
+
+    img.addEventListener('mouseleave', () => {
+      // マウスが画像から離れたらクラスを削除
+      gallery.classList.remove('dim-others');
+    });
+  });
+});

@@ -69,6 +69,16 @@
             const img = document.createElement('img');
             img.id = `Img-${inputCounter}`
 
+            const gallery = document.querySelector('.form-section');
+            img.addEventListener('mouseenter', () => {
+                // マウスオーバー時に親要素にクラスを追加
+                gallery.classList.add('dim-others');
+            });
+            img.addEventListener('mouseleave', () => {
+                // マウスが画像から離れたらクラスを削除
+                gallery.classList.remove('dim-others');
+            });
+
             inputGroup.appendChild(input);
             inputGroup.appendChild(deleteButton);
             inputGroup.appendChild(img);
