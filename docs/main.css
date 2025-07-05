@@ -83,6 +83,10 @@ h1 {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+#staticInput_1_3 {
+    width: 78%;
+}
+
 .input-group img {
     flex-grow: 1;
 }

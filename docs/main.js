@@ -8,6 +8,74 @@ WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((resu
     instance = WebAssembly.instantiate(mod, go.importObject);
 });
 
+let inputCounter = 0;
+const addButton = document.getElementById('addInputButton');
+const inputContainer = document.getElementById('inputContainer');
+const handleInputEvent = (e) => {
+    const input = e.target.value;
+    const imgId = e.target.id;
+    callGenBarcode(input, imgId);
+}
+
+addButton.addEventListener('click', function() {
+    inputCounter++;
+
+    const inputGroup = document.createElement('div');
+    inputGroup.className = 'input-group';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = `${inputCounter}`;
+    input.name = `${inputCounter}`;
+    input.placeholder = `コード生成元文字列をどうぞ！`;
+    input.addEventListener('input', handleInputEvent);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '削除';
+    deleteButton.className = 'delete-button';
+
+    deleteButton.addEventListener('click', function() {
+        inputContainer.removeChild(inputGroup);
+    });
+
+    const img = document.createElement('img');
+    img.id = `Img-${inputCounter}`
+
+    const gallery = document.querySelector('.form-section');
+    img.addEventListener('mouseenter', () => {
+        // マウスオーバー時に親要素にクラスを追加
+        gallery.classList.add('dim-others');
+    });
+    img.addEventListener('mouseleave', () => {
+        // マウスが画像から離れたらクラスを削除
+        gallery.classList.remove('dim-others');
+    });
+
+    inputGroup.appendChild(input);
+    inputGroup.appendChild(deleteButton);
+    inputGroup.appendChild(img);
+
+    inputContainer.appendChild(inputGroup);
+});
+
+// バーコードを目立たせるところ
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.form-section');
+  const images = gallery.querySelectorAll('img');
+
+  images.forEach(img => {
+    img.addEventListener('mouseenter', () => {
+      // マウスオーバー時に親要素にクラスを追加
+      gallery.classList.add('dim-others');
+    });
+
+    img.addEventListener('mouseleave', () => {
+      // マウスが画像から離れたらクラスを削除
+      gallery.classList.remove('dim-others');
+    });
+  });
+});
+
 const callGenBarcode = (input, imgId) => {
     if (input.length === 0) {
         document.getElementById(`Img-${imgId}`).setAttribute('src', '');
@@ -62,22 +130,4 @@ toggleImageButton.addEventListener('click', function() {
         urlImage.style.display = 'none';
         toggleImageButton.textContent = '画像を表示する';
     }
-});
-
-// バーコードを目立たせるところ
-document.addEventListener('DOMContentLoaded', () => {
-  const gallery = document.querySelector('.form-section');
-  const images = gallery.querySelectorAll('img');
-
-  images.forEach(img => {
-    img.addEventListener('mouseenter', () => {
-      // マウスオーバー時に親要素にクラスを追加
-      gallery.classList.add('dim-others');
-    });
-
-    img.addEventListener('mouseleave', () => {
-      // マウスが画像から離れたらクラスを削除
-      gallery.classList.remove('dim-others');
-    });
-  });
 });
