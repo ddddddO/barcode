@@ -25,6 +25,8 @@ const url = document.getElementById("staticInput_1_3")
 
 const handleGenQRForURL = () => {
     if (url.value.length === 0) {
+        document.getElementById('Img-URL').setAttribute('src', '');
+
         return;
     }
 
@@ -34,7 +36,6 @@ const handleGenQRForURL = () => {
         u.password = password.value;
         genBarcode(`${u.toString()}`, "qr", "URL");
     } catch (err) {
-        document.getElementById("")
         alert(err);
         return;
     }
