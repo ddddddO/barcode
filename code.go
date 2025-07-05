@@ -39,7 +39,7 @@ func Barcode128(input string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	scaled, err := barcode.Scale(barcode128, 300, 70)
+	scaled, err := barcode.Scale(barcode128, 300, 60)
 	if err != nil {
 		return nil, err
 	}
