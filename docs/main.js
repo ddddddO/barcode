@@ -9,6 +9,12 @@ WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((resu
 });
 
 const callGenBarcode = (input, imgId) => {
+    if (input.length === 0) {
+        document.getElementById(`Img-${imgId}`).setAttribute('src', '');
+
+        return;
+    }
+
     genBarcode(input, "code128", imgId);
 };
 
