@@ -9,3 +9,6 @@ cpwasmexec:
 
 cpgowasmexec:
 	cp $(shell go env GOROOT)/lib/wasm/wasm_exec.js .
+
+credit:
+	gocredits ../ > ../CREDITS
