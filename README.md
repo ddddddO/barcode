@@ -34,3 +34,13 @@ The site is in Japanese, but please translate it for your use.
 
 - これまでのイメージは、以下で表示されます (Previous images are shown below)
     - **[https://ddddddo.github.io/barcode/?url=https%3A%2F%2Fgo.dev%2F&i1=4971633002005&i2=ITEM-1234&i3=1A-2B-3C&i4=aaaa&i5=bbb](https://ddddddo.github.io/barcode/?url=https%3A%2F%2Fgo.dev%2F&i1=4971633002005&i2=ITEM-1234&i3=1A-2B-3C&i4=aaaa&i5=bbb)**
+
+
+## Contributing
+1. Install Go (https://go.dev/doc/install)
+1. Fork this repository
+1. `cd docs`
+1. `make cpgowasmexec` (only once)
+1. `make build` (after editing the Go program)
+1. `make serve` (web server will be started on `8080`)
+1. Check the display at http://localhost:8080/.
