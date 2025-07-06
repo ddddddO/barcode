@@ -25,8 +25,8 @@
                 </div>
                 <div>
                     <div class="input-field-wrapper flex-3">
-                        <label for="staticInput_1_3">URL:</label>
-                        <input type="url" id="staticInput_1_3" name="staticInput_1_3">
+                        <label for="staticInput_1_3">URL:&nbsp;</label>
+                        <input type="url" id="staticInput_1_3" name="staticInput_1_3" placeholder="htttp(s)://">
                     </div>
                     <button type="button" id="toggle-button" class="toggle-button">認証情報が画像にあるかも！ここ押して隠して</button>
                 </div>
@@ -40,57 +40,6 @@
         <iframe id="gitlink" src="https://ghbtns.com/github-btn.html?user=ddddddO&repo=barcode&type=star&count=true" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
     </div>
 
-    <script>
-        let inputCounter = 0;
-        const addButton = document.getElementById('addInputButton');
-        const inputContainer = document.getElementById('inputContainer');
-        const handleInputEvent = (e) => {
-            const input = e.target.value;
-            const imgId = e.target.id;
-            callGenBarcode(input, imgId);
-        }
-
-        addButton.addEventListener('click', function() {
-            inputCounter++;
-
-            const inputGroup = document.createElement('div');
-            inputGroup.className = 'input-group';
-
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.id = `${inputCounter}`;
-            input.name = `${inputCounter}`;
-            input.placeholder = `コード生成元文字列をどうぞ！`;
-            input.addEventListener('input', handleInputEvent);
-
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = '削除';
-            deleteButton.className = 'delete-button';
-
-            deleteButton.addEventListener('click', function() {
-                inputContainer.removeChild(inputGroup);
-            });
-
-            const img = document.createElement('img');
-            img.id = `Img-${inputCounter}`
-
-            const gallery = document.querySelector('.form-section');
-            img.addEventListener('mouseenter', () => {
-                // マウスオーバー時に親要素にクラスを追加
-                gallery.classList.add('dim-others');
-            });
-            img.addEventListener('mouseleave', () => {
-                // マウスが画像から離れたらクラスを削除
-                gallery.classList.remove('dim-others');
-            });
-
-            inputGroup.appendChild(input);
-            inputGroup.appendChild(deleteButton);
-            inputGroup.appendChild(img);
-
-            inputContainer.appendChild(inputGroup);
-        });
-    </script>
     <script src="main.js"></script>
 </body>
 </html>
