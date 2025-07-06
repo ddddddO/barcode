@@ -20,6 +20,10 @@ func registerCallbacks() {
 }
 
 func genBarcode(this js.Value, args []js.Value) interface{} {
+	if len(args) < 3 {
+		alert("required 3 args")
+		return nil
+	}
 	input := args[0].String()
 	codeType := args[1].String()
 	imgID := args[2].String()
@@ -29,7 +33,15 @@ func genBarcode(this js.Value, args []js.Value) interface{} {
 		return nil
 	}
 	document := js.Global().Get("document")
+	if document.IsNull() {
+		alert("document is nil")
+		return nil
+	}
 	img := document.Call("getElementById", fmt.Sprintf("Img-%s", imgID))
+	if img.IsNull() {
+		alert("img is nil")
+		return nil
+	}
 	base64PNG := base64.StdEncoding.EncodeToString(code)
 	src := fmt.Sprintf("data:image/png;base64, %s", base64PNG)
 	img.Set("src", src)
