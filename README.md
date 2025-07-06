@@ -31,5 +31,5 @@ https://ddddddo.github.io/barcode/
 - クエリパラメータに、フォームに入力されたURLと各バーコード生成元の文字列を反映しています。それを使い、このページを復元します
 - ただし、`User` / `Password` は共有するとダメなのでクエリパラメータに反映していません
 
-- これまでのイメージは、以下にアクセスすると表示されます
+- これまでのイメージは、以下で表示されます
     - **[https://ddddddo.github.io/barcode/?url=https%3A%2F%2Fgo.dev%2F&i1=4971633002005&i2=ITEM-1234&i3=1A-2B-3C&i4=aaaa&i5=bbb](https://ddddddo.github.io/barcode/?url=https%3A%2F%2Fgo.dev%2F&i1=4971633002005&i2=ITEM-1234&i3=1A-2B-3C&i4=aaaa&i5=bbb)**
