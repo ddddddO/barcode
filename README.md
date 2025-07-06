@@ -12,6 +12,7 @@ https://ddddddo.github.io/barcode/
 - URLフォームにurlを入力するとそのQRコードが生成されます
     - User/Passwordフォームに、対象urlのBasic認証の認証情報を入れると、生成されるQRコードに埋め込まれます
 - 「バーコード追加」ボタンを押すと、バーコードを複数生成できます
+    - バーコードは、`CODE128` です
 
 ![](./image1.png)
 
