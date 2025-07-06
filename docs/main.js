@@ -1,7 +1,7 @@
 const updateURLWithQueryParams = (currentParams) => {
     const newQueryString = currentParams.toString();
     const newUrl = window.location.pathname + '?' + newQueryString + window.location.hash;
-    window.history.pushState({ path: newUrl }, '', newUrl);
+    window.history.replaceState({ path: newUrl }, '', newUrl);
 }
 
 const callGenBarcode = (input, imgId) => {
