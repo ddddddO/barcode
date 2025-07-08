@@ -152,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const input = document.createElement('input');
             input.type = 'text';
+            input.inputMode = 'numeric';
             input.id = `${inputCounter}`;
             input.name = `${inputCounter}`;
             input.placeholder = `コード生成元文字列をどうぞ！`;
@@ -216,6 +217,7 @@ addButton.addEventListener('click', function() {
 
     const input = document.createElement('input');
     input.type = 'text';
+    input.inputMode = 'numeric';
     input.id = `${inputCounter}`;
     input.name = `${inputCounter}`;
     input.placeholder = `コード生成元文字列をどうぞ！`;
