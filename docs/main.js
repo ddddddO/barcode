@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        if (url.value.length > 0) {
+        if (url.length > 0) {
             const urlForm = document.getElementById('staticInput_1_3');
             urlForm.value = url;
             genBarcode(url, 'qr', 'URL');
