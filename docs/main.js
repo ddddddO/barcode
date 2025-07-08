@@ -45,9 +45,28 @@ const handleGenQRForURL = () => {
     if (url.value.length === 0) {
         currentParams.delete(key);
         updateURLWithQueryParams(currentParams);
-
         document.getElementById('Img-URL').setAttribute('src', '');
+        hideErrorMessage('url');
         return;
+    }
+
+    switch (url.value) {
+        case 'h':
+        case 'ht':
+        case 'htt':
+        case 'http':
+        case 'http:':
+        case 'http:/':
+        case 'http://':
+        case 'https':
+        case 'https:':
+        case 'https:/':
+        case 'https://':
+            currentParams.delete(key);
+            updateURLWithQueryParams(currentParams);
+            document.getElementById('Img-URL').setAttribute('src', '');
+            hideErrorMessage('url');
+            return;
     }
 
     try {
@@ -55,8 +74,12 @@ const handleGenQRForURL = () => {
         u.username = user.value;
         u.password = password.value;
         genBarcode(`${u.toString()}`, "qr", "URL");
+        hideErrorMessage('url');
     } catch (err) {
-        alert(err);
+        currentParams.delete(key);
+        updateURLWithQueryParams(currentParams);
+        document.getElementById('Img-URL').setAttribute('src', '');
+        showErrorMessage('url', err);
         return;
     }
     // user/passwordが入力されたときは、urlは以前と変わらないから
@@ -176,13 +199,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        const urlForm = document.getElementById('staticInput_1_3');
-        urlForm.value = url;
-        genBarcode(url, 'qr', 'URL');
+        if (url.value.length > 0) {
+            const urlForm = document.getElementById('staticInput_1_3');
+            urlForm.value = url;
+            genBarcode(url, 'qr', 'URL');
+        }
     });
-
-
-
 });
 
 // TODO: ↑とだいぶかぶってる
@@ -265,3 +287,15 @@ toggleImageButton.addEventListener('click', function() {
         toggleImageButton.textContent = '画像を表示する';
     }
 });
+
+const showErrorMessage = (target, message) => {
+    const errorMessageDiv = document.getElementById(`errorMessage-${target}`);
+    errorMessageDiv.textContent = message;
+    errorMessageDiv.style.display = 'block'; 
+}
+
+const hideErrorMessage = (target) => {
+    const errorMessageDiv = document.getElementById(`errorMessage-${target}`);
+    errorMessageDiv.textContent = '';
+    errorMessageDiv.style.display = 'none';
+}
