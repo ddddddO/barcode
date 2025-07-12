@@ -15,18 +15,18 @@ The site is in Japanese, but please translate it for your use.
 - 「バーコード追加」ボタンを押すと、バーコードを複数生成できます (Click the “Add Barcode” button to generate multiple barcodes.)
     - バーコードは、`CODE128` です (The generated barcode is CODE128.)
 
-![](./image1.png)
+![](./image/image1.png)
 
 ### URL用QRコードを隠せます (QR Code for URL can be hidden.)
 - 生成したURL用QRコードにBasic認証情報が含まれていると、このページをスクショで共有できないので、専用ボタンを押すことでQRコードを隠せます (If the QR code for the generated URL contains Basic Authentication information, the page cannot be shared in a screenshot, so you can hide the QR code by pressing the dedicated button.)
 
-![](./image2.png)
+![](./image/image2.png)
 
 
 ### マウスオーバーで拡大・ぼかし (Enlargement and blurring on mouse-over)
 - 複数バーコードがあると、スキャンするときに別のバーコードをスキャンしてしまうことがあります。そういったとき、対象バーコードをマウスオーバーすることで拡大・他のバーコードをぼかして、スキャンしやすくします (When there are multiple barcodes, you may scan another barcode when scanning. In such cases, mouse-over the target barcode to enlarge and blur the other barcodes, making it easier to scan.)
 
-![](./image3.png)
+![](./image/image3.png)
 
 ### ページ内容をURLで共有できます (Share page content by URL)
 - クエリパラメータに、フォームに入力されたURLと各バーコード生成元の文字列を反映しています。それを使い、このページを復元します (The query parameters reflect the URL entered in the form and the string from which each barcode was generated. Use it to restore this page)
@@ -42,7 +42,7 @@ The site is in Japanese, but please translate it for your use.
     1. Check the display at http://localhost:8080/.
 - `--port` フラグに起動ポートを指定できます (The `port` flag can be used to specify the startup port)
 
-## Contributing
+## For developer
 1. Install Go (https://go.dev/doc/install)
 1. Fork this repository
 1. `cd docs`
