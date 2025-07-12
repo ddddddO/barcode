@@ -35,6 +35,12 @@ The site is in Japanese, but please translate it for your use.
 - これまでのイメージは、以下で表示されます (Previous images are shown below)
     - **[https://ddddddo.github.io/barcode/?url=https%3A%2F%2Fgo.dev%2F&i1=4971633002005&i2=ITEM-1234&i3=1A-2B-3C&i4=aaaa&i5=bbb](https://ddddddo.github.io/barcode/?url=https%3A%2F%2Fgo.dev%2F&i1=4971633002005&i2=ITEM-1234&i3=1A-2B-3C&i4=aaaa&i5=bbb)**
 
+### 自身でバーコード生成サイトを提供できます (Can provide own barcode generation site)
+- 以下の手順で、サイトを起動できます (You can launch the site by following these steps)
+    1. Fork this repository
+    1. `go run cmd/barcode-web/main.go`
+    1. Check the display at http://localhost:8080/.
+- `--port` フラグに起動ポートを指定できます (The `port` flag can be used to specify the startup port)
 
 ## Contributing
 1. Install Go (https://go.dev/doc/install)

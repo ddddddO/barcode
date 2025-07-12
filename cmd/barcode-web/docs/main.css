@@ -1,0 +1,163 @@
+/* 基本的なスタイル */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 上部に寄せる */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    /* padding: 30px; */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.form-section img {
+  width: 150px; /* 画像の初期サイズ */
+  height: auto;
+  margin: 5px;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out; /* アニメーション */
+}
+
+/* マウスオーバー時、親要素にクラスが付与されている場合 */
+.form-section.dim-others img:not(:hover) {
+  opacity: 0.3; /* 他の画像を薄くする */
+  filter: blur(4px); /* 他の画像をぼかす */
+}
+
+/* もしマウスオーバーした画像を少し拡大したい場合 */
+.form-section.dim-others img:hover {
+  transform: scale(1.5); /* 少し拡大 */
+  z-index: 10; /* 手前に表示 */
+  opacity: 1; /* 不透明にする */
+  filter: none; /* ぼかしを解除 */
+}
+
+.form-section {
+    /* border: 1px solid #e0e0e0; */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fdfdfd;
+}
+
+#user-form {
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center; /* ラベルと入力フィールドを垂直方向に中央揃え */
+    gap: 10px; /* ラベルと入力フィールドの間のスペース */
+}
+
+.input-group label {
+    font-size: 16px;
+    color: #555;
+    min-width: 80px; /* ラベルの最小幅を確保 */
+}
+
+.input-group input[type="text"], .input-group input[type="password"], .input-group input[type="url"] {
+    flex-grow: 1; /* 入力フィールドが利用可能なスペースを埋める */
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#staticInput_1_3 {
+    width: 78%;
+}
+
+.input-group img {
+    flex-grow: 1;
+}
+
+.input-group input[type="text"]:focus, .input-group input[type="password"]:focus, .input-group input[type="url"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* 新しいフォーム追加ボタンのスタイル */
+#addInputButton {
+    display: block; /* ボタンをブロック要素にする */
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#addInputButton:hover {
+    background-color: #0056b3;
+}
+
+#addInputButton:active {
+    transform: translateY(1px);
+}
+
+/* 削除ボタンのスタイル */
+.delete-button, .toggle-button {
+    padding: 8px 12px;
+    background-color: #dc3545; /* 赤色 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    flex-shrink: 0; /* 縮まないようにする */
+}
+
+.toggle-button {
+    width: 320px;
+}
+
+.delete-button:hover, .toggle-button:hover {
+    background-color: #c82333;
+}
+
+.delete-button:active, .toggle-button:active {
+    transform: translateY(1px);
+}
+
+.toggle-button {
+    margin-top: 12px;
+}
+
+#gitlink {
+    margin-left: 20px;
+}
+
+.errorMessage {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    /* margin-bottom: 1px; */
+    text-align: left;
+    padding-left: 5px;
+    display: none;
+}

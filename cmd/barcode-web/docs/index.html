@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟰</text></svg>">
+    <title>CODECODECODECODECODECODE</title>
+
+    <link href="main.css" rel="stylesheet">
+    <script src="wasm_exec.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section" id="inputContainer">
+            <div class="input-group" id="environment">
+                <div>
+                    <div class="input-field-wrapper flex-1" id="user-form">
+                        <label for="staticInput_1_1">User:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" id="staticInput_1_1" name="staticInput_1_1" inputmode="latin">
+                    </div>
+                    <div class="input-field-wrapper flex-1">
+                        <label for="staticInput_1_2">Password:&nbsp;</label>
+                        <input type="password" id="staticInput_1_2" name="staticInput_1_2">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-field-wrapper flex-3">
+                        <label for="staticInput_1_3">URL:&nbsp;</label>
+                        <input type="url" id="staticInput_1_3" name="staticInput_1_3" placeholder="htttp(s)://">
+                        <div class="errorMessage" id="errorMessage-url" role="alert" aria-live="polite"></div>
+                    </div>
+                    <button type="button" id="toggle-button" class="toggle-button">認証情報が画像にあるかも！ここ押して隠して</button>
+                </div>
+                <div>
+                    <img id="Img-URL" />
+                </div>
+            </div>
+            <button id="addInputButton">バーコード追加</button>
+        </div>
+
+        <iframe id="gitlink" src="https://ghbtns.com/github-btn.html?user=ddddddO&repo=barcode&type=star&count=true" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
