@@ -22,12 +22,12 @@ func main() {
 
 	log.Printf("Launch barcode web server (:%s)", port)
 
-	constens, err := fs.Sub(staticFiles, "docs")
+	contents, err := fs.Sub(staticFiles, "docs")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	fsHandler := http.FileServer(http.FS(constens))
+	fsHandler := http.FileServer(http.FS(contents))
 	http.Handle("/", fsHandler)
 	log.Fatalln(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
