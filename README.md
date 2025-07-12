@@ -38,8 +38,9 @@ The site is in Japanese, but please translate it for your use.
 ### 自身でバーコード生成サイトを提供できます (Can provide own barcode generation site)
 - 以下の手順で、サイトを起動できます (You can launch the site by following these steps)
     1. Fork this repository
-    1. `go run cmd/barcode-web/main.go`
+    1. `go run cmd/barcode-web/main.go` or `go build -o barcode-web cmd/barcode-web/main.go && ./barcode-web`
     1. Check the display at http://localhost:8080/.
+
 - `--port` フラグに起動ポートを指定できます (The `port` flag can be used to specify the startup port)
 
 ## For developer
