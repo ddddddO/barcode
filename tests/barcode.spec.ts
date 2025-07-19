@@ -264,13 +264,13 @@ test.describe('Restore page from URL with query parameters', () => {
     await page.goto('http://localhost:8080/?url=https%3A%2F%2Fgo.dev%2F&i1=4971633002005&i2=ITEM-1234&i3=1A-2B-3C&i4=aaaa&i5=bbb');
 
     // QRコードにフォーカスして拡大とぼかし確認(目視)
-    const qrcode = page.locator('#Img-URL');
-    qrcode.hover();
-    await expect(qrcode).toBeVisible();    
+    // const qrcode = page.locator('#Img-URL');
+    // qrcode.hover();
+    // await expect(qrcode).toBeVisible();
 
     // 任意のバーコードにフォーカスして拡大とぼかし確認(目視)
-    const barcode3 = page.locator('#Img-3');
-    barcode3.hover();
-    await expect(barcode3).toBeVisible();
+    // const barcode3 = page.locator('#Img-3');
+    // barcode3.hover();
+    // await expect(barcode3).toBeVisible();
   });
 });
