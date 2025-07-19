@@ -1,4 +1,5 @@
 # barcode
+[![ci](https://github.com/ddddddO/barcode/actions/workflows/playwright.yml/badge.svg)](https://github.com/ddddddO/barcode/actions/workflows/playwright.yml)
 
 https://ddddddo.github.io/barcode/
 
