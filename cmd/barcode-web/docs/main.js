@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             input.addEventListener('input', handleInputEvent);
 
             const deleteButton = document.createElement('button');
+            deleteButton.id = `delete-button-${inputCounter}`;
             deleteButton.textContent = '削除';
             deleteButton.className = 'delete-button';
 
@@ -224,6 +225,7 @@ addButton.addEventListener('click', function() {
     input.addEventListener('input', handleInputEvent);
 
     const deleteButton = document.createElement('button');
+    deleteButton.id = `delete-button-${inputCounter}`;
     deleteButton.textContent = '削除';
     deleteButton.className = 'delete-button';
 
