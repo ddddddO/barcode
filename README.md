@@ -51,3 +51,6 @@ The site is in Japanese, but please translate it for your use.
 1. `make build` (after editing the Go program)
 1. `make serve` (web server will be started on `8080`)
 1. Check the display at http://localhost:8080/.
+    - `make e2e` and click `▷`(Run all)
+    - Run tests in tests/MANUAL_TEST.md
+1. (If you edit files in docs) `cd cmd/barcode-web && make syncdocs`
