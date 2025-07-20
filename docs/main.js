@@ -109,6 +109,16 @@ const addEventForEnlargementAndBlurring = (img, gallery) => {
     });
 }
 
+const handleEnter = (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        addInputGroup('');
+
+        const addedBarcodeInput = document.getElementById(`${inputCounter}`);
+        addedBarcodeInput.focus();
+    }
+}
+
 const addInputGroup = (barcodeValue) => {
     inputCounter++;
 
@@ -123,6 +133,7 @@ const addInputGroup = (barcodeValue) => {
     input.placeholder = `コード生成元文字列をどうぞ！`;
     input.value = barcodeValue;
     input.addEventListener('input', handleInputEvent);
+    input.addEventListener('keydown', handleEnter);
 
     const deleteButton = document.createElement('button');
     deleteButton.id = `delete-button-${inputCounter}`;
