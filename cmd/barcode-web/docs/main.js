@@ -98,6 +98,71 @@ const handleGenQRForURL = () => {
     })
 });
 
+const addEventForEnlargementAndBlurring = (img, gallery) => {
+    img.addEventListener('mouseenter', () => {
+        // マウスオーバー時に親要素にクラスを追加
+        gallery.classList.add('dim-others');
+    });
+    img.addEventListener('mouseleave', () => {
+        // マウスが画像から離れたらクラスを削除
+        gallery.classList.remove('dim-others');
+    });
+}
+
+const handleEnter = (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        addInputGroup('');
+
+        const addedBarcodeInput = document.getElementById(`${inputCounter}`);
+        addedBarcodeInput.focus();
+    }
+}
+
+const addInputGroup = (barcodeValue) => {
+    inputCounter++;
+
+    const inputGroup = document.createElement('div');
+    inputGroup.className = 'input-group';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.inputMode = 'latin';
+    input.id = `${inputCounter}`;
+    input.name = `${inputCounter}`;
+    input.placeholder = `コード生成元文字列をどうぞ！`;
+    input.value = barcodeValue;
+    input.addEventListener('input', handleInputEvent);
+    input.addEventListener('keydown', handleEnter);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.id = `delete-button-${inputCounter}`;
+    deleteButton.textContent = '削除';
+    deleteButton.className = 'delete-button';
+
+    deleteButton.addEventListener('click', function() {
+        const key = `i${input.id}`;
+        currentParams.delete(key);
+        updateURLWithQueryParams(currentParams);
+
+        inputContainer.removeChild(inputGroup);
+    });
+
+    const img = document.createElement('img');
+    img.id = `Img-${inputCounter}`
+
+    const gallery = document.querySelector('.form-section');
+    addEventForEnlargementAndBlurring(img, gallery);
+
+    inputGroup.appendChild(input);
+    inputGroup.appendChild(deleteButton);
+    inputGroup.appendChild(img);
+
+    inputContainer.appendChild(inputGroup);
+
+    return inputGroup;
+}
+
 // クエリパラメータからページ復元
 document.addEventListener('DOMContentLoaded', function() {
     const go = new Go();
@@ -143,53 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         for (let i = 1; i <= maxInputCounter; i++) {
             const registeredBarcode = barcodes.find((barcode) => barcode.inputCounter === i);
-
-            // TODO: 以降からだいぶかぶってる
-            inputCounter++;
-
-            const inputGroup = document.createElement('div');
-            inputGroup.className = 'input-group';
-
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.inputMode = 'latin';
-            input.id = `${inputCounter}`;
-            input.name = `${inputCounter}`;
-            input.placeholder = `コード生成元文字列をどうぞ！`;
-            input.value = registeredBarcode?.barcode ?? '';
-            input.addEventListener('input', handleInputEvent);
-
-            const deleteButton = document.createElement('button');
-            deleteButton.id = `delete-button-${inputCounter}`;
-            deleteButton.textContent = '削除';
-            deleteButton.className = 'delete-button';
-
-            deleteButton.addEventListener('click', function() {
-                const key = `i${input.id}`;
-                currentParams.delete(key);
-                updateURLWithQueryParams(currentParams);
-
-                inputContainer.removeChild(inputGroup);
-            });
-
-            const img = document.createElement('img');
-            img.id = `Img-${inputCounter}`
-
-            const gallery = document.querySelector('.form-section');
-            img.addEventListener('mouseenter', () => {
-                // マウスオーバー時に親要素にクラスを追加
-                gallery.classList.add('dim-others');
-            });
-            img.addEventListener('mouseleave', () => {
-                // マウスが画像から離れたらクラスを削除
-                gallery.classList.remove('dim-others');
-            });
-
-            inputGroup.appendChild(input);
-            inputGroup.appendChild(deleteButton);
-            inputGroup.appendChild(img);
-
-            inputContainer.appendChild(inputGroup);
+            const inputGroup = addInputGroup(registeredBarcode?.barcode ?? '');
 
             // documentにimg追加後でないとgo側でimg取得できないみたいなので最後に処理
             if (registeredBarcode !== undefined) {
@@ -209,70 +228,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// TODO: ↑とだいぶかぶってる
 addButton.addEventListener('click', function() {
-    inputCounter++;
-
-    const inputGroup = document.createElement('div');
-    inputGroup.className = 'input-group';
-
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.inputMode = 'latin';
-    input.id = `${inputCounter}`;
-    input.name = `${inputCounter}`;
-    input.placeholder = `コード生成元文字列をどうぞ！`;
-    input.addEventListener('input', handleInputEvent);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.id = `delete-button-${inputCounter}`;
-    deleteButton.textContent = '削除';
-    deleteButton.className = 'delete-button';
-
-    deleteButton.addEventListener('click', function() {
-        const key = `i${input.id}`;
-        currentParams.delete(key);
-        updateURLWithQueryParams(currentParams);
-
-        inputContainer.removeChild(inputGroup);
-    });
-
-    const img = document.createElement('img');
-    img.id = `Img-${inputCounter}`
-
-    const gallery = document.querySelector('.form-section');
-    img.addEventListener('mouseenter', () => {
-        // マウスオーバー時に親要素にクラスを追加
-        gallery.classList.add('dim-others');
-    });
-    img.addEventListener('mouseleave', () => {
-        // マウスが画像から離れたらクラスを削除
-        gallery.classList.remove('dim-others');
-    });
-
-    inputGroup.appendChild(input);
-    inputGroup.appendChild(deleteButton);
-    inputGroup.appendChild(img);
-
-    inputContainer.appendChild(inputGroup);
+    addInputGroup('');
 });
 
 // バーコードを目立たせるところ
 document.addEventListener('DOMContentLoaded', () => {
   const gallery = document.querySelector('.form-section');
   const images = gallery.querySelectorAll('img');
-
-  images.forEach(img => {
-    img.addEventListener('mouseenter', () => {
-      // マウスオーバー時に親要素にクラスを追加
-      gallery.classList.add('dim-others');
-    });
-
-    img.addEventListener('mouseleave', () => {
-      // マウスが画像から離れたらクラスを削除
-      gallery.classList.remove('dim-others');
-    });
-  });
+  images.forEach(img => addEventForEnlargementAndBlurring(img, gallery));
 });
 
 const toggleImageButton = document.getElementById('toggle-button');
