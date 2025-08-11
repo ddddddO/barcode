@@ -21,6 +21,6 @@
   "homepage": "https://github.com/ddddddO/barcode#readme",
   "devDependencies": {
     "@playwright/test": "^1.54.1",
-    "@types/node": "^24.0.15"
+    "@types/node": "^24.2.1"
   }
 }
