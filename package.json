@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ddddddO/barcode#readme",
   "devDependencies": {
-    "@playwright/test": "^1.54.1",
+    "@playwright/test": "^1.56.0",
     "@types/node": "^24.0.15"
   }
 }
