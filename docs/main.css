@@ -36,8 +36,8 @@ h1 {
 
 /* マウスオーバー時、親要素にクラスが付与されている場合 */
 .form-section.dim-others img:not(:hover) {
-  opacity: 0.3; /* 他の画像を薄くする */
-  filter: blur(4px); /* 他の画像をぼかす */
+  opacity: 0.2; /* 他の画像を薄くする */
+  filter: blur(10px); /* 他の画像をぼかす */
 }
 
 /* もしマウスオーバーした画像を少し拡大したい場合 */
